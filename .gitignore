@@ -1,0 +1,11 @@
+sftp-config.json
+.DS_Store
+npm-debug.log*
+node_modules/
+config/
+!config/*.example.*
+.env
+repo/
+dist/
+lib/
+scrap.md

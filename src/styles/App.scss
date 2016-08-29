@@ -1,0 +1,807 @@
+%heroFont {
+  font-size: 2rem;
+  line-height: 3.6rem;
+  letter-spacing: -0.02rem;
+}
+
+:local(hr) {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 3rem 0;
+}
+
+:local(.section) {
+  padding: 4rem 0 3rem;
+  @media screen and (max-width: 601px) {
+    padding: 4rem 0 9rem;
+  }
+}
+
+:local(.sectionSm) {
+  composes: section;
+  padding: 4rem 0 0;
+  @media screen and (max-width: 601px) {
+    padding: 8rem 0 0;
+  }
+}
+
+:local(.modalOverlay) {
+  z-index: 99999;
+}
+
+:local(.formGroup) {
+  composes: form-group from 'spectre.css';
+}
+
+:local(.formInput) {
+  composes: form-input from 'spectre.css';
+}
+
+:local(.formTextarea) {
+  composes: form-input from 'spectre.css';
+}
+
+@media screen and (min-width: 600px) {
+  :local(.formInput) {
+    composes: input-lg from 'spectre.css';
+  }
+
+  :local(.formSelect) {
+    composes: select-lg from 'spectre.css';
+  }
+}
+
+:local(.btnLgPrimary) {
+  composes: btn btn-primary btn-lg from 'spectre.css';
+  svg {
+    margin: -0.4rem 0.4rem 0 0;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+:local(.formLabel) {
+  composes: form-label from 'spectre.css';
+}
+
+:local(.formGapped) :local(.formGroup) {
+  padding: 1rem 0;
+}
+
+:local(.formGapped) :local(.formLabel) {
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  :local(.btnContainer) {
+    composes: formGroup;
+    margin: 1rem 0 5rem;
+
+    :local(.btnLgPrimary) {
+      display: block;
+      width: 100%;
+      height: 7rem;
+    }
+  }
+}
+
+@media screen and (min-height: 501px) and (max-width: 601px) {
+  :local(.btnContainer) {
+    padding-top: 10rem;
+    :local(.btnLgPrimary) {
+      height: 10rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 0;
+      width: 100%;
+      display: block;
+      @include border-radius(0);
+      border-bottom-width: 0;
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+  }
+}
+
+
+:local(.formSelect) {
+  composes: form-select form-input from 'spectre.css';
+}
+
+:local(.formCheckbox) {
+  composes: form-checkbox from 'spectre.css';
+}
+
+:local(.formCheckbox) {
+  composes: form-checkbox from 'spectre.css';
+}
+
+:local(.formIcon) {
+  composes: form-icon from 'spectre.css';
+}
+
+:local(.formChecklistItem) {
+  input { display: none }
+  @include display-flex();
+  @include flex-direction(row);
+  @include align-items(center);
+  cursor: pointer;
+  padding: 0.1rem 0;
+  color: #848484;
+
+  > span > .formChecklistAlt {
+    display: none;
+    border: 1px solid $success-color;
+    padding: 0.7rem 0.1rem 0;
+    @include border-radius(50%);
+  }
+
+  > span > svg, > span > .formChecklistAlt {
+    @include transition(0.13s ease-in-out all);
+  }
+
+  > span > svg, > span > .formChecklistAlt {
+    vertical-align: middle;
+    font-size: 1.8rem;
+    text-align: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    margin-right: 1.4rem;
+    color: #ddd;
+  }
+
+  input:checked + span {
+    color: $success-color;
+    > svg {
+      color: $success-color;
+      display: none;
+    }
+    > .formChecklistAlt {
+      color: $success-color;
+      display: inline-block;
+    }
+  }
+}
+
+:local(.container) {
+  max-width: 75rem;
+  padding: 0 5rem;
+  margin: 0 auto;
+}
+
+:local(.header) {
+  @include flex(0 1 auto);
+}
+
+:local(.appContent) {
+  @include flex(1 1 auto);
+}
+
+:local(.appContentFlex) {
+  composes: appContent;
+  @include display-flex();
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include align-items(stretch);
+  @include align-content(stretch);
+  overflow: auto;
+
+  > :first-child {
+    @include flex(1 1 auto);
+  }
+
+  > :last-child {
+    @include flex(0 1 auto);
+  }
+}
+
+:local(.headerBox) {
+  @include display-flex();
+  @include flex-direction(row);
+  @include align-items(center);
+  padding: 3rem 0;
+}
+
+:local(.logo) {
+  @include flex(0 0 auto);
+  width: 51px;
+  height: 40px;
+  margin-right: 1.5rem;
+  > span {
+    @include transition(0.12s linear all);
+    background: url('../../public/assets/logo.png');
+    width: 51px;
+    height: 40px;
+    display: block;
+  }
+
+  &:hover > span {
+    @include transform(scaleY(-1));
+  }
+
+  &:active > span {
+    @include filter(grayscale(100%));
+  }
+}
+
+@media screen and (max-width: 601px) {
+  :local(.navigation) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.9);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 9999;
+    text-align: center;
+
+    .modalCloseBtn {
+      margin-top: 50px;
+      font-size: 60px;
+      @include border-radius(50%);
+      padding: 10px;
+      color: #888;
+      cursor: pointer;
+
+      &:hover, &:active {
+        background-color: $primary-color;
+        color: #fff;
+      }
+
+      &:active {
+        background-color: $primary-light-color;
+      }
+    }
+
+    > ul {
+      margin: 0;
+      list-style-type: none;
+      padding: 50px 0 0;
+      > li {
+        margin: 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid #ccc;
+        }
+        @include transition(0.2s ease-in-out all);
+        display: block;
+        @include translateZ(0);
+        > a, > a:hover, > a:focus {
+          font-size: 2rem;
+          padding: 3.8rem 0;
+          @include translateZ(0);
+          @include transition(0.2s ease-in-out all);
+          display: block;
+          color: #444;
+        }
+        > a:hover, > a:active {
+          @include transform(scale(1.9) translateY(-0.18rem));
+          color: #fff;
+        }
+
+        &:hover, &:active {
+          background-color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  :local(.modalCloseBtn) {
+    display: none;
+  }
+
+  :local(.navigation) {
+    @include flex(1 0 auto);
+
+    > ul {
+      @include display-flex();
+      @include flex-direction(row);
+      @include justify-content(flex-start);
+      @include align-items(center);
+      margin: 0;
+      list-style-type: none;
+      > li {
+        @include flex(0 0 auto);
+        display: block;
+        margin: -0.7rem 2rem 0;
+        > a, > :hover, > :focus {
+          @include transition(0.1s linear border-bottom-color, 0.1s linear color);
+          padding-bottom: 5px;
+          border-bottom: 2px solid transparent;
+          color: #333;
+        }
+
+        > a:hover {
+          border-bottom-color: $primary-color;
+        }
+
+        > a:active, > a:focus {
+          color: $secondary-color;
+          border-bottom-color: $secondary-color;
+        }
+
+        > a.active {
+          border-bottom-color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+:local(.navigationSticky) {
+  @include transition(0.1s linear all);
+  z-index: 9999;
+  :local(.header) {
+    @include background(linear-gradient(top, #fff 70%, rgba(255,255,255,0)));
+    .headerBox {
+      padding-top: 0.9rem;
+      padding-bottom: 2rem;
+    }
+  }
+  :local(.navigation) {
+    z-index: 9999;
+  }
+}
+
+:local(.hero) {
+  p {
+    @extend %heroFont;
+    font-weight: 300;
+    text-align: justify;
+    @media screen and (max-width: 601px) {
+      text-align: left;
+    }
+    margin: 2.5rem 0;
+    color: #616161;
+  }
+
+  h1:first-child {
+    margin-top: 0;
+  }
+
+  h3:first-child {
+    margin-top: 0;
+    a svg {
+      @include transition (0.13s ease-in-out all);
+      color: $primary-light-color;
+      width: 4rem;
+      height: 4rem;
+      padding: 0.55rem;
+      margin: -0.8rem 0 0.7rem 0.5rem;
+      border: 2px solid $primary-light-color;
+      @include border-radius(30px);
+      &:hover, &:active {
+        color: #fff;
+        background: $primary-light-color;
+      }
+      &:active {
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+:local(.callToAction) {
+  @extend %heroFont;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  @include transition(0.1s linear border-bottom-color, 0.1s linear color);
+
+  &:hover {
+    border-bottom-color: $primary-color;
+  }
+}
+
+:local(.ourClients) {
+  h1 {
+    margin-bottom: 2.5rem;
+  }
+}
+
+:local(.clientList) {
+  composes: columns col-gapless col-multiline from 'spectre.css';
+  border-left: 1px solid #ddd;
+}
+
+:local(.clientView) {
+  composes: col-xs-6 col-sm-3 column from 'spectre.css';
+  @include display-flex();
+  @include flex-direction(row);
+  min-height: 140px;
+}
+
+:local(.clientViewItem) {
+  margin: 2px;
+  @include flex(1 1 50px);
+  @include display-flex();
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(stretch);
+
+  > span {
+    @include flex(1 1 auto);
+    @include background-size(contain);
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+:local(.clientViewDesktop) {
+  composes: clientView;
+  composes: hide-xs from 'spectre.css';
+}
+
+:local(.rootWrapper) {
+  @include display-flex();
+  @include flex-direction(column);
+  @include align-items(stretch);
+  @include justify-content(flex-start);
+  @include align-content(flex-start);
+  min-width: 100vw;
+  min-height: 100vh;
+
+  &:first-child {
+    @include flex(1 1 auto);
+  }
+  &:last-child {
+    @include flex(1 1 auto);
+  }
+}
+
+:local(.mobileNav) {
+  @include flex(1 1 auto);
+}
+
+:local(.hamburger) {
+  cursor: pointer;
+  float: right;
+  font-size: 4.8rem;
+  color: #555;
+}
+
+:local(.lineRight) {
+  margin-bottom: 1000px;
+  @include transform(rotate(45deg));
+  border-top: 1px solid #bbb;
+  height: 1px;
+}
+
+:local(.about) {
+  composes: hero;
+}
+
+:local(.testimonialBrowser) {
+  display: none;
+}
+
+:local(.testimonialContent) {
+  a {
+    color: $primary-light-color;
+    &:hover {
+      color: $secondary-color;
+      border-bottom-color: $secondary-color;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+
+  :local(.testimonialBrowser) {
+    display: block;
+    padding: 5rem 1rem 1rem;
+    background: #fff;
+    position: relative;
+    left: 40%;
+    float: left;
+    margin-right: 3rem;
+    margin-left: -668px;
+    @include box-shadow(0 0 10px 0 rgba(0,0,0,0.3));
+    @include border-top-radius(5px);
+    &::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #d2d2d2;
+      @include box-shadow(
+        -2.2rem 0 0 0 #d2d2d2,
+        -4.4rem 0 0 0 #d2d2d2
+      );
+      @include border-radius(50%);
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  :local(.testimonial) {
+    position: relative;
+    min-height: 500px;
+    margin-left: -3rem;
+    &:not(:first-child) {
+      margin-top: -4rem;
+    }
+  }
+
+  :local(.testimonialLeft) {
+    composes: testimonial;
+  }
+
+  :local(.testimonialRight) {
+    composes: testimonial;
+  }
+
+  :local(.testimonials) {
+    composes: hero;
+    overflow-x: hidden;
+    padding-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    p {
+      text-align: left;
+    }
+  }
+
+  :local(.testimonialContent) {
+    margin-left: 40%;
+    padding-top: 7.5rem;
+  }
+
+  :local(.testimonialRight) {
+    :local(.testimonialBrowser) {
+      left: auto;
+      float: right;
+      right: 40%;
+      margin-right: -668px;
+      margin-left: 3rem;
+      &::before {
+
+      }
+    }
+
+    :local(.testimonial) {
+      margin-right: -3rem;
+      margin-left: 0;
+    }
+
+    :local(.testimonialContent) {
+      margin-right: 40%;
+      margin-left: 0;
+    }
+  }
+
+  :local(.testimonial:first-child) :local(.testimonialContent) {
+    padding-top: 5rem;
+  }
+
+}
+
+@media screen and (max-width: 601px) {
+  :local(.testimonials) {
+    margin-bottom: -10rem;
+  }
+
+  :local(.testimonial) {
+    padding: 0 0 4rem;
+    overflow: hidden;
+
+    h1 {
+      margin-bottom: 3rem;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 1.8rem;
+      color: #888;
+    }
+    p {
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      border-bottom: 1px solid #ccc;
+      width: 130%;
+      padding-bottom: 5rem;
+      margin: 5rem 0;
+      @include transform(rotate(-4deg));
+    }
+  }
+
+  :local(.testimonialRight)::before {
+    @include transform(rotate(4deg));
+  }
+}
+
+:local(.selectList) {
+  margin: 0;
+}
+
+:local(.selectListItem) {
+  cursor: pointer;
+  &:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+
+  @include display-flex();
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(center);
+  @include align-content(center);
+  @include flex-wrap(wrap);
+  @include border-radius(5px);
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+:local(.selectListContent) {
+  margin-right: 2rem;
+  @include flex(1 1 auto);
+  h5 {
+    font-weight: 400;
+    margin: 1rem 0 1rem;
+    color: $link-hover-color;
+    @include display-flex();
+    @include flex-direction(row);
+    @include align-items(center);
+
+    svg {
+      font-size: 3.2rem;
+      vertical-align: middle;
+      margin-right: 1rem;
+    }
+  }
+
+  p {
+    margin: 0 0 1rem;
+    font-weight: 300;
+    color: #777;
+  }
+}
+
+:local(.selectListBtn) {
+  @include transition(0.1s ease-in-out all);
+  composes: btn from 'spectre.css';
+  @include flex(0 1 1rem);
+  margin: 2rem 0;
+
+  &, &:focus {
+    background-color: #fff;
+  }
+}
+
+:local(.selectListLeftIcon) {
+  display: inline-block;
+  margin-right: 1rem;
+  width: 5rem;
+  height: 5rem;
+  @include border-radius(50%);
+  overflow: hidden;
+  border: 2px solid #bbb;
+  padding: 0.1rem;
+  @include display-flex();
+  @include flex-direction(column);
+  > img, > div {
+    @include flex(1 1 auto);
+    width: 4.1rem;
+    height: 4.1rem;
+  }
+}
+
+:local(.selectListItem):hover,
+:local(.selectListItem):focus,
+:local(.selectListItem):active, {
+  background-color: #f3f4fb;
+  border-color: $primary-light-color + #444;
+
+  &:hover .selectListBtn {
+    background-color: $btn-hover-color;
+    color: #fff;
+  }
+
+  .selectListBtn {
+    color: $primary-color + #111;
+  }
+
+  :local(.selectListLeftIcon) {
+    border-color: $primary-light-color;
+  }
+}
+
+:local(.selectListCompact) {
+  composes: selectList;
+  :local(.selectListItem) {
+    padding: 1rem 2rem;
+
+    :local(.selectListBtn) {
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+:local(.formChecklist) {
+  list-style-type: none;
+  margin: 1.5rem 0 0;
+
+  > li {
+    font-size: 1.5rem;
+
+    :local(.formCheckbox) {
+      height: 5rem;
+    }
+
+    :local(.formIcon) {
+      @include border-radius(50%);
+      width: 3rem;
+      height: 3rem;
+      margin-right: 5rem;
+    }
+  }
+}
+
+:local(.bulletList) {
+  margin: 0;
+  list-style-type: none;
+  > li {
+    &:not(:last-child)::after {
+      content: '•';
+      line-height: auto;
+      font-size: 1.6rem;
+      margin: 0 1rem;
+      display: inline-block;
+    }
+    display: inline-block;
+    a {
+      color: #555;
+      text-decoration: underline;
+      &:hover, &:active, &:focus {
+        color: $primary-light-color;
+      }
+    }
+  }
+}
+
+:local(.formChecklistHero) {
+  composes: formChecklist;
+  margin: 3.5rem 0;
+
+  .formChecklistItem {
+    input:checked + span {
+      color: #444;
+      > svg {
+        border-color: $primary-color;
+        color: $primary-color;
+        display: none;
+      }
+      > .formChecklistAlt {
+        border-color: $primary-color;
+        color: $primary-color;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+:local(.copyright) {
+  margin: 0;
+}
+
+:local(.footer) {
+  font-size: 1.4rem;
+  @include flex(0 0 auto);
+  border-top: 1px solid #ddd;
+  padding: 2rem 0 1.5rem;
+}
+
+:local(.hideSm) {
+  composes: hide-sm hide-xs from 'spectre.css';
+}

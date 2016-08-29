@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+:global {
+  body {
+    font-family: 'Montserrat', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Hiragino Kaku Gothic Pro', Meiryo, 'Malgun Gothic', sans-serif;
+    font-size: $font-size;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  .anchor-link {
+    margin-top: -3px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+  }
+
+  h1 {
+    font-size: 4.4rem;
+    letter-spacing: -0.1rem;
+
+    @media screen and (max-width: 601px) {
+      font-size: 3.1rem;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "senior-full-stack-software-engineer",
+    "name": "Senior Full Stack Software Engineer",
+    "shortDescription": "$75k • Full Time • Benefits",
+    "description": "",
+    "skills": [
+      "React JS",
+      "Functional Programming",
+      "Docker / Vagrant",
+      "Express JS",
+      "Bash",
+      "Nginx",
+      "Babel",
+      "HTML5",
+      "Graphic Design",
+      "SASS/LESS",
+      "MongoDB",
+      "Webpack"
+    ]
+  },
+  {
+    "id": "php-developer",
+    "name": "PHP Developer",
+    "shortDescription": "$50k • Full Time • Benefits",
+    "description": "",
+    "skills": [
+      "Magento",
+      "WordPress",
+      "PHP Composer",
+      "Graphic Design",
+      "Babel",
+      "Javascript",
+      "Ubuntu / CentOS",
+      "Docker / Vagrant",
+      "Nginx",
+      "Webpack",
+      "HTML5",
+      "CSS3"
+    ]
+  },
+  {
+    "id": "remote-dev-ops",
+    "name": "Remote Dev Ops",
+    "shortDescription": "$18/hr • Part Time • Benefits",
+    "description": "",
+    "skills": [
+      "Ubuntu / CentOS",
+      "Python / PHP / Javascript",
+      "Docker / Vagrant",
+      "Bash",
+      "C++"
+    ]
+  },
+  {
+    "id": "sales",
+    "name": "Sales",
+    "shortDescription": "5% Commission Based",
+    "description": "",
+    "skills": [
+      "MBA",
+      "Sales Experience"
+    ]
+  },
+  {
+    "id": "internship",
+    "name": "Internship",
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "id": "legal",
+    "name": "Legal",
+    "shortDescription": "",
+    "description": ""
+  }
+]
