@@ -10,7 +10,7 @@
     "start": "NODE_ENV=prod node -r ./env src/server",
     "clean": "rimraf dist",
     "dev": "NODE_ENV=dev supervisor -w src/server -n exit -- -r ./env src/server",
-    "deploy": "node scripts/deploy.js"
+    "deploy": "node scripts/deploy.js",
     "build": "NODE_ENV=prod webpack -p --config webpack.config.babel.js"
   },
   "files": [
