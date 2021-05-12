@@ -27,7 +27,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-cluster": "0.0.4",
-    "nodemailer": "^2.5.0",
+    "nodemailer": "^6.4.16",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-easy-transition": "0.0.5",
